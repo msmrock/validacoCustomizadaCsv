@@ -5,7 +5,7 @@ const winston = require('winston');
 const { carregarCrachaLiberado } = require('./utils/leituraCSV');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -56,5 +56,7 @@ app.post('/validacao-customizada', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`✔️ Servidor rodando em http://localhost:${PORT}/validacao-customizada`);
+  console.log(`Server running on port ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });
+
